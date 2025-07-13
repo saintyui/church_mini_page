@@ -1,0 +1,223 @@
+/* style.css */
+
+/* 기본 설정 */
+body {
+    font-family: 'Noto Sans KR', sans-serif; /* 한글 폰트 적용 (필요시 웹폰트 링크 추가) */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* 배경색 */
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 20px 0;
+}
+
+/* 헤더/메인 섹션 */
+.hero-section {
+    background-color: #6a9bd8; /* 이미지 색상 기반 */
+    color: white;
+    text-align: center;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden; /* 배경 이미지/요소 넘치는 것 방지 */
+}
+
+.hero-section .main-banner {
+    width: 100%;
+    max-width: 600px; /* 이미지 크기 조절 */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.camp-info {
+    background-color: rgba(255, 255, 255, 0.2); /* 반투명 배경 */
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block; /* 내용만큼만 너비 차지 */
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.camp-info p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.btn-apply {
+    display: inline-block;
+    background-color: #ffcc00; /* 강조 색상 */
+    color: #333;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-apply:hover {
+    background-color: #e6b800;
+}
+
+/* 일반 섹션 */
+section {
+    padding: 40px 0;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    text-align: center;
+    color: #3f51b5; /* 교회 색상 계열 */
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* 테이블 스타일 (프로그램 일정) */
+.program-schedule table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.program-schedule th, .program-schedule td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.program-schedule th {
+    background-color: #e0eaff; /* 연한 파랑 */
+    color: #3f51b5;
+    font-weight: bold;
+}
+
+/* 신청 버튼 및 폼 */
+.btn-form {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    background-color: #4CAF50; /* 초록색 */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-form:hover {
+    background-color: #45a049;
+}
+
+/* 리스트 스타일 (준비물) */
+.application-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.application-info li {
+    margin-bottom: 8px;
+}
+
+/* 지도 임베드 */
+.map-embed {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* iframe 모서리 둥글게 */
+}
+
+/* 푸터 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+.footer-logo {
+    width: 80px; /* 로고 크기 조절 */
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* 반응형 디자인 (모바일 최적화) */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .btn-apply {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    .program-schedule table, .program-schedule thead, .program-schedule tbody, .program-schedule th, .program-schedule td, .program-schedule tr {
+        display: block; /* 모바일에서 테이블 스크롤 가능하게 */
+    }
+
+    .program-schedule thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .program-schedule tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+
+    .program-schedule td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    .program-schedule td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+    /* 각 td:before 에 적절한 내용 추가 (예: 시간, 7/24 (목) 등) */
+}
