@@ -141,61 +141,105 @@ section h2 {
 /* ---------------------------------------------------- */
 /* 모바일 반응형을 위한 미디어 쿼리 */
 /* 화면 너비가 768px 이하일 때 적용 */
+/* style.css 파일 내 @media (max-width: 768px) {} 블록 안에 추가 또는 수정 */
 @media (max-width: 768px) {
-    .program-schedule table {
-        display: block; /* 모바일에서 테이블을 블록 요소로 강제하여 가로 스크롤 활성화 */
-        width: auto; /* 너비를 auto로 설정하여 내용이 넘치면 스크롤되도록 함 */
-    }
+ .program-schedule table {
+ display: block;
+ width: 100%; /* Ensure table takes full width of its container */
+ }
 
-    /* 테이블을 블록으로 만들었기 때문에, 실제 스크롤 영역을 제공할 래퍼 div가 필요할 수 있습니다.
-       HTML을 수정하지 않는다면, 테이블 자체에 overflow-x를 적용하는 것이 일반적입니다. */
-    .program-schedule {
-        overflow-x: auto; /* .program-schedule 섹션 자체에 가로 스크롤바 생성 */
-        -webkit-overflow-scrolling: touch; /* iOS에서 스크롤 부드럽게 */
-    }
+ .program-schedule thead {
+ display: none; /* Hide the table header on smaller screens */
+ }
 
-    /* (선택 사항) 만약 테이블을 세로 스택형으로 바꾸고 싶다면 아래 코드를 활용합니다.
-       이 방법은 표가 아주 작을 때 적합하며, 큰 표에서는 가로 스크롤이 더 나을 수 있습니다.
-       현재 표는 너무 커서 이 방법은 추천하지 않습니다.
+ .program-schedule tbody {
+ display: block;
+ }
 
-    .program-schedule thead {
-        display: none; /* 헤더 숨기기 */
-    }
+ .program-schedule tr {
+ display: block;
+ margin-bottom: 15px;
+ border: 1px solid #ddd;
+ }
 
-    .program-schedule tbody, .program-schedule tr, .program-schedule td {
-        display: block; /* tbody, tr, td를 블록 요소로 만들어 세로로 쌓이게 함 */
-    }
+ .program-schedule td {
+ display: block;
+ border: none;
+ border-bottom: 1px solid #eee;
+ padding-left: 50%; /* Space for the "label" */
+ position: relative;
+ text-align: right;
+ }
 
-    .program-schedule tr {
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-    }
+ .program-schedule td:before {
+ content: attr(data-label); /* Get the label from the data-label attribute */
+ position: absolute;
+ left: 6px;
+ width: 45%;
+ padding-right: 10px;
+ white-space: nowrap;
+ text-align: left;
+ font-weight: bold;
+ color: #555;
+ }
 
-    .program-schedule td {
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%; /* 레이블을 위한 공간 확보 */
-        text-align: right;
-    }
+ /* Apply data-label to each td */
+ .program-schedule td:nth-child(1) {
+ }
 
-    .program-schedule td:before {
-        content: attr(data-label); /* data-label 속성을 내용으로 표시 */
-        position: absolute;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
-        color: #555;
-    }
+ .program-schedule td:nth-child(2) {
+ }
 
-    /* 각 td에 data-label 속성 추가 예시:
-    <td data-label="시간">10:00</td>
-    <td data-label="7/24 (목)">2025 안양 1부...</td>
-    */
-    */
+ .program-schedule td:nth-child(3) {
+ }
+
+ .program-schedule td:nth-child(4) {
+ }
+
+ .program-schedule td:nth-child(5) {
+ }
+
+ .program-schedule tr:nth-child(1) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(2) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(3) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(4) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(5) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(6) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(7) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(8) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(9) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(10) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(11) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(12) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(13) td:nth-child(1) {
+ }
+
+ .program-schedule tr:nth-child(14) td:nth-child(1) {
+ }
 }
 
 
