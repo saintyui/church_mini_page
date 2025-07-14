@@ -138,111 +138,6 @@ section h2 {
     font-weight: bold;
 }
 
-/* ---------------------------------------------------- */
-/* 모바일 반응형을 위한 미디어 쿼리 */
-/* 화면 너비가 768px 이하일 때 적용 */
-/* style.css 파일 내 @media (max-width: 768px) {} 블록 안에 추가 또는 수정 */
-@media (max-width: 768px) {
- .program-schedule table {
- display: block;
- width: 100%; /* Ensure table takes full width of its container */
- }
-
- .program-schedule thead {
- display: none; /* Hide the table header on smaller screens */
- }
-
- .program-schedule tbody {
- display: block;
- }
-
- .program-schedule tr {
- display: block;
- margin-bottom: 15px;
- border: 1px solid #ddd;
- }
-
- .program-schedule td {
- display: block;
- border: none;
- border-bottom: 1px solid #eee;
- padding-left: 50%; /* Space for the "label" */
- position: relative;
- text-align: right;
- }
-
- .program-schedule td:before {
- content: attr(data-label); /* Get the label from the data-label attribute */
- position: absolute;
- left: 6px;
- width: 45%;
- padding-right: 10px;
- white-space: nowrap;
- text-align: left;
- font-weight: bold;
- color: #555;
- }
-
- /* Apply data-label to each td */
- .program-schedule td:nth-child(1) {
- }
-
- .program-schedule td:nth-child(2) {
- }
-
- .program-schedule td:nth-child(3) {
- }
-
- .program-schedule td:nth-child(4) {
- }
-
- .program-schedule td:nth-child(5) {
- }
-
- .program-schedule tr:nth-child(1) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(2) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(3) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(4) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(5) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(6) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(7) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(8) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(9) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(10) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(11) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(12) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(13) td:nth-child(1) {
- }
-
- .program-schedule tr:nth-child(14) td:nth-child(1) {
- }
-}
-
-
 /* 신청 버튼 및 폼 */
 .btn-form {
     display: block;
@@ -272,11 +167,27 @@ section h2 {
 }
 
 /* 지도 임베드 */
+
 .map-embed {
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden; /* iframe 모서리 둥글게 */
+    position: relative; /* 자식 iframe의 absolute 위치를 위한 기준 */
+    width: 100%; /* 부모 div가 가로 전체 너비 사용 */
+    padding-bottom: 56.25%; /* 16:9 비율 (높이/너비 * 100 = 9/16 * 100 = 56.25%)
+                                 원하는 비율에 따라 값 변경 (예: 4:3 비율은 75%) */
+    height: 0; /* padding-bottom으로 높이를 대체하므로 0으로 설정 */
+    overflow: hidden; /* iframe이 넘치지 않도록 숨김 */
+    margin: 20px auto; /* 중앙 정렬을 위한 핵심: 좌우 auto */
+    max-width: 1000px; /* 원래 iframe width였던 1000px을 부모 div의 최대 너비로 설정 */
+    border-radius: 8px; /* 부모 div에도 모서리 둥글게 적용 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 그림자 효과 (선택 사항) */
+}
+
+.map-embed iframe {
+    position: absolute; /* 부모 div를 기준으로 위치 설정 */
+    top: 0;
+    left: 0;
+    width: 100%; /* 부모 div에 맞춰 100% */
+    height: 100%; /* 부모 div에 맞춰 100% */
+    border: 0; /* iframe 자체의 border 제거 */
 }
 
 /* 푸터 */
@@ -321,34 +232,101 @@ footer p {
         display: block; /* 모바일에서 테이블 스크롤 가능하게 */
     }
 
-    .program-schedule thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    .program-schedule tr {
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-    }
-
-    .program-schedule td {
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%;
-        text-align: right;
-    }
-
-    .program-schedule td:before {
-        position: absolute;
-        top: 6px;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
-    }
-    /* 각 td:before 에 적절한 내용 추가 (예: 시간, 7/24 (목) 등) */
+     .program-schedule table {
+     display: block;
+     width: 100%; /* Ensure table takes full width of its container */
+     }
+    
+     .program-schedule thead {
+     display: none; /* Hide the table header on smaller screens */
+     }
+    
+     .program-schedule tbody {
+     display: block;
+     }
+    
+     .program-schedule tr {
+     display: block;
+     margin-bottom: 15px;
+     border: 1px solid #ddd;
+     }
+    
+     .program-schedule td {
+     display: block;
+     border: none;
+     border-bottom: 1px solid #eee;
+     padding-left: 50%; /* Space for the "label" */
+     position: relative;
+     text-align: right;
+     }
+    
+     .program-schedule td:before {
+     content: attr(data-label); /* Get the label from the data-label attribute */
+     position: absolute;
+     left: 6px;
+     width: 45%;
+     padding-right: 10px;
+     white-space: nowrap;
+     text-align: left;
+     font-weight: bold;
+     color: #555;
+     }
+    
+     /* Apply data-label to each td */
+     .program-schedule td:nth-child(1) {
+     }
+    
+     .program-schedule td:nth-child(2) {
+     }
+    
+     .program-schedule td:nth-child(3) {
+     }
+    
+     .program-schedule td:nth-child(4) {
+     }
+    
+     .program-schedule td:nth-child(5) {
+     }
+    
+     .program-schedule tr:nth-child(1) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(2) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(3) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(4) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(5) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(6) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(7) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(8) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(9) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(10) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(11) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(12) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(13) td:nth-child(1) {
+     }
+    
+     .program-schedule tr:nth-child(14) td:nth-child(1) {
+     }
 }
