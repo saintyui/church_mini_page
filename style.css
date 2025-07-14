@@ -93,7 +93,7 @@ section h2 {
 }
 
 /* 테이블 스타일 (프로그램 일정) */
-.program-schedule table {
+/* .program-schedule table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -107,10 +107,97 @@ section h2 {
 }
 
 .program-schedule th {
+    background-color: #e0eaff; 
+    color: #3f51b5;
+    font-weight: bold;
+} */
+
+/* style.css 파일에 추가 또는 수정 */
+
+/* 기본 표 스타일 (이전 CSS에서 이미 정의되어 있다면 일부 중복될 수 있음) */
+.program-schedule table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    /* 추가: 모바일에서 부모 요소 너비를 넘치지 않게 */
+    overflow-x: auto; /* 핵심: 가로 스크롤바 생성 */
+    display: block; /* 블록 요소로 만들어 overflow-x가 작동하도록 */
+}
+
+.program-schedule th, .program-schedule td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap; /* 핵심: 셀 안의 내용이 줄바꿈되지 않도록 (가로 스크롤을 유도) */
+}
+
+.program-schedule th {
     background-color: #e0eaff; /* 연한 파랑 */
     color: #3f51b5;
     font-weight: bold;
 }
+
+/* ---------------------------------------------------- */
+/* 모바일 반응형을 위한 미디어 쿼리 */
+/* 화면 너비가 768px 이하일 때 적용 */
+@media (max-width: 768px) {
+    .program-schedule table {
+        display: block; /* 모바일에서 테이블을 블록 요소로 강제하여 가로 스크롤 활성화 */
+        width: auto; /* 너비를 auto로 설정하여 내용이 넘치면 스크롤되도록 함 */
+    }
+
+    /* 테이블을 블록으로 만들었기 때문에, 실제 스크롤 영역을 제공할 래퍼 div가 필요할 수 있습니다.
+       HTML을 수정하지 않는다면, 테이블 자체에 overflow-x를 적용하는 것이 일반적입니다. */
+    .program-schedule {
+        overflow-x: auto; /* .program-schedule 섹션 자체에 가로 스크롤바 생성 */
+        -webkit-overflow-scrolling: touch; /* iOS에서 스크롤 부드럽게 */
+    }
+
+    /* (선택 사항) 만약 테이블을 세로 스택형으로 바꾸고 싶다면 아래 코드를 활용합니다.
+       이 방법은 표가 아주 작을 때 적합하며, 큰 표에서는 가로 스크롤이 더 나을 수 있습니다.
+       현재 표는 너무 커서 이 방법은 추천하지 않습니다.
+
+    .program-schedule thead {
+        display: none; /* 헤더 숨기기 */
+    }
+
+    .program-schedule tbody, .program-schedule tr, .program-schedule td {
+        display: block; /* tbody, tr, td를 블록 요소로 만들어 세로로 쌓이게 함 */
+    }
+
+    .program-schedule tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+    }
+
+    .program-schedule td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%; /* 레이블을 위한 공간 확보 */
+        text-align: right;
+    }
+
+    .program-schedule td:before {
+        content: attr(data-label); /* data-label 속성을 내용으로 표시 */
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #555;
+    }
+
+    /* 각 td에 data-label 속성 추가 예시:
+    <td data-label="시간">10:00</td>
+    <td data-label="7/24 (목)">2025 안양 1부...</td>
+    */
+    */
+}
+
 
 /* 신청 버튼 및 폼 */
 .btn-form {
